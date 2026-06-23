@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Base Body Styles for Muhurtham Studios Theme */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a !important;
+  color: #e5e5e5;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Vite default alignment layout fix */
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  min-height: 100vh;
+  display: block;
+}
+
+/* Custom Premium Scrollbar for Dark-Gold UI */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b; /* Amber Gold Hover Effect */
+}
