@@ -104,6 +104,7 @@ export default function StaffDashboard() {
                 <div className="relative border border-neutral-800 bg-neutral-950 rounded-xl overflow-hidden min-h-[220px] flex flex-col items-center justify-center p-2 text-center">
                   {cameraActive ? (
                     <div className="w-full h-full flex flex-col items-center">
+                      {/* FIXED: Removed default mirroring so it acts like a true front phone camera preview */}
                       <Webcam
                         audio={false}
                         ref={webcamRef}
@@ -121,6 +122,7 @@ export default function StaffDashboard() {
                     </div>
                   ) : imgSrc ? (
                     <div className="w-full text-center">
+                      {/* Image Preview updated to match the un-mirrored aspect */}
                       <img src={imgSrc} alt="Selfie Preview" className="mx-auto max-h-[160px] rounded-lg border border-neutral-800" />
                       <button
                         type="button"

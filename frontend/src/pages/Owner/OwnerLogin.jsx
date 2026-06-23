@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, Camera } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
-export default function AdminLogin() {
+export default function OwnerLogin() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ userId: '', password: '' });
   const [error, setError] = useState('');
@@ -15,12 +15,13 @@ export default function AdminLogin() {
     e.preventDefault();
     setError('');
 
+    // Keeping your secret identifier ID logic intact
     if (formData.userId.trim().toUpperCase() === 'MSMAA01') {
-      // Set secure admin token session inside localStorage
-      localStorage.setItem('adminToken', 'SECRET_MUHURTHAM_ADMIN_NODE_KEY');
-      navigate('/admin/dashboard');
+      // Changed token key name to match our App.jsx OwnerGuard shield
+      localStorage.setItem('ownerToken', 'SECRET_MUHURTHAM_ADMIN_NODE_KEY');
+      navigate('/owner/dashboard');
     } else {
-      setError('Invalid Secret Admin ID!');
+      setError('Invalid Secret Owner ID!');
     }
   };
 
@@ -34,7 +35,7 @@ export default function AdminLogin() {
         <h1 className="text-2xl font-extrabold tracking-wide text-white">
           STUDIO CONTROL CONSOLE
         </h1>
-        <p className="text-xs text-amber-500 mt-1 uppercase tracking-widest font-mono">Secret Admin Node</p>
+        <p className="text-xs text-amber-500 mt-1 uppercase tracking-widest font-mono">Secret Owner Node</p>
       </div>
 
       <div className="w-full max-w-md bg-neutral-900/80 border border-neutral-800 p-8 rounded-2xl shadow-2xl">
@@ -47,7 +48,7 @@ export default function AdminLogin() {
         <form onSubmit={handleLoginSubmit} className="space-y-5">
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">
-              Secret Admin ID
+              Secret Owner ID
             </label>
             <input
               type="text"
@@ -55,7 +56,7 @@ export default function AdminLogin() {
               value={formData.userId}
               onChange={handleInputChange}
               required
-              placeholder="Enter Admin ID"
+              placeholder="Enter Owner ID"
               className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-xl focus:outline-none focus:border-amber-500 text-white font-mono"
             />
           </div>

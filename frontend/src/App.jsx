@@ -9,13 +9,16 @@ import StaffDashboard from './pages/Staff/StaffDashboard';
 import TaskDetails from './pages/Staff/TaskDetails';
 import PaymentPage from './pages/Customer/PaymentPage';
 
-// Admin Imports
-import AdminDashboard from './pages/Admin/Dashboard';
-import AdminLogin from './pages/Admin/AdminLogin';
+// Owner Imports (Successfully Renamed from Admin)
+import OwnerDashboard from './pages/Owner/OwnerDashboard';
+import OwnerLogin from './pages/Owner/OwnerLogin';
+import JobCardManager from './pages/Owner/JobCardManager'; // Future Import for Job Cards
 
-// Secure Route Shield Wrapper Component
-const AdminGuard = ({ children }) => {
-  const token = localStorage.getItem('adminToken');
+// Secure Route Shield Wrapper Component for Owner
+const OwnerGuard = ({ children }) => {
+  // Token renamed to ownerToken for consistency
+  const token = localStorage.getItem('ownerToken');
+  
   // If token is missing, prevent entry and bounce back to normal login
   if (!token || token !== 'SECRET_MUHURTHAM_ADMIN_NODE_KEY') {
     return <Navigate to="/login" replace />;
@@ -33,8 +36,8 @@ function App() {
         {/* Main Login Screen (Staff & Customer Only) */}
         <Route path="/login" element={<Login />} />
         
-        {/* Secret Hidden Admin Login Path Route */}
-        <Route path="/login/admin" element={<AdminLogin />} />
+        {/* Secret Hidden Owner Login Path Route */}
+        <Route path="/login/owner" element={<OwnerLogin />} />
         
         {/* Customer Portal Routes */}
         <Route path="/customer/track" element={<TrackProject />} />
@@ -44,13 +47,22 @@ function App() {
         <Route path="/staff/dashboard" element={<StaffDashboard />} />
         <Route path="/staff/task/:taskId" element={<TaskDetails />} />
 
-        {/* Fully Shielded Admin Portal Route */}
+        {/* Fully Shielded Owner Portal Routes */}
         <Route 
-          path="/admin/dashboard" 
+          path="/owner/dashboard" 
           element={
-            <AdminGuard>
-              <AdminDashboard />
-            </AdminGuard>
+            <OwnerGuard>
+              <OwnerDashboard />
+            </OwnerGuard>
+          } 
+        />
+        
+        <Route 
+          path="/owner/job-cards" 
+          element={
+            <OwnerGuard>
+              <JobCardManager />
+            </OwnerGuard>
           } 
         />
 

@@ -42,28 +42,28 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Nav Links */}
+          {/* Nav Links - Corrected Routes to Match App.jsx */}
           <nav className="space-y-2">
             <button 
-              onClick={() => navigate('/admin/dashboard')}
+              onClick={() => navigate('/owner/dashboard')}
               className="w-full flex items-center gap-3 px-4 py-3 bg-amber-500 text-neutral-950 font-bold text-xs rounded-xl tracking-wider uppercase transition-all shadow-lg shadow-amber-500/10"
             >
               <LayoutDashboard className="w-4 h-4" /> Dashboard
             </button>
             <button 
-              onClick={() => navigate('/admin/jobcards')}
+              onClick={() => navigate('/owner/job-cards')}
               className="w-full flex items-center gap-3 px-4 py-3 text-neutral-400 hover:text-white hover:bg-neutral-850 font-bold text-xs rounded-xl tracking-wider uppercase transition-all"
             >
               <ClipboardList className="w-4 h-4 text-amber-500" /> Job Cards
             </button>
             <button 
-              onClick={() => navigate('/admin/staff')}
+              onClick={() => navigate('/owner/staff-management')}
               className="w-full flex items-center gap-3 px-4 py-3 text-neutral-400 hover:text-white hover:bg-neutral-850 font-bold text-xs rounded-xl tracking-wider uppercase transition-all"
             >
               <Users className="w-4 h-4 text-amber-500" /> Staff List
             </button>
             <button 
-              onClick={() => navigate('/admin/attendance')}
+              onClick={() => navigate('/owner/attendance-log')}
               className="w-full flex items-center gap-3 px-4 py-3 text-neutral-400 hover:text-white hover:bg-neutral-850 font-bold text-xs rounded-xl tracking-wider uppercase transition-all"
             >
               <ClipboardCheck className="w-4 h-4 text-amber-500" /> Attendance Log
